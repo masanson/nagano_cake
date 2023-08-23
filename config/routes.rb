@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
-  
-  get 'admin' => 'admin/homes#top', as: 'admin_top'
+  namespace :admin do
+    get '' => 'homes#top', as: 'top'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
