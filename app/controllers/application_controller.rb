@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   
-  # before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   
   def after_sign_in_path_for(resource)
     # # case resourse
@@ -11,18 +11,18 @@ class ApplicationController < ActionController::Base
     # end
   end
   
-  # def after_sign_out_path_for(resource)
-  #   case resourse
-  #   when Customer
+  def after_sign_out_path_for(resource)
+    # case resourse
+    # when Customer
       
-  #   when Admin
-  #     new_admin_session_path  
-  #   end
-  # end
+    # when Admin
+      new_admin_session_path  
+    # end
+  end
   
-  # protected
+  protected
   
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
-  # end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
+  end
 end
