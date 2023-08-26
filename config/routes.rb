@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root to: "public/homes#top"
   get '/about' => 'public/homes#about', as: 'about'
   
@@ -11,8 +12,9 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
   
-   namespace :public do
-    
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
   end
   
   namespace :admin do
