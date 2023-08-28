@@ -14,6 +14,7 @@
     <header>
       <% if admin_signed_in? %>
         <%= link_to "ログアウトadimin", destroy_admin_session_path, method: :delete %>
+        <%= link_to "商品一覧", admin_items_path %>
         <%= link_to "注文履歴一覧", admin_top_path %>
         <%= link_to "ジャンル一覧", admin_genres_path %>
       <% else %>

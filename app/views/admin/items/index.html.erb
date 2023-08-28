@@ -1,2 +1,23 @@
 <h1>Admin::Items#index</h1>
 <p>Find me in app/views/admin/items/index.html.erb</p>
+<%= link_to "新規登録_商品", new_admin_item_path %>
+
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% @items.each do |item| %>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
