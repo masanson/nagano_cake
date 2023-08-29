@@ -1,2 +1,27 @@
 <h1>Admin::Items#show</h1>
 <p>Find me in app/views/admin/items/show.html.erb</p>
+
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>商品説明</th>
+      <th>ジャンル</th>
+      <th>税抜価格</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <% @items.each do |item| %>
+  <tbody>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.introduction %></td>
+      <td></td>
+      <td><%= item.price %></td>
+      <td></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+
+<%= link_to edit_admin_item_path(@item.id) do %>

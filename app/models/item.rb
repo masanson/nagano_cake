@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  belongs_to :genre
+  
   has_one_attached :sweets_image
   
   def get_sweets_image(width, height)
