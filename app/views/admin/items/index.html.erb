@@ -16,10 +16,10 @@
   <tbody>
     <tr>
       <td><%= item.id %></td>
-      <td><%= item.name %></td>
+      <td><%= link_to item.name, admin_item_path(item.id) %></td>
       <td><%= item.price %></td>
-      <td></td>
-      <td></td>
+      <td><%= item.genre_id %></td>
+      <td><%= item.is_on_sale %></td>
     </tr>
   </tbody>
   <% end %>
