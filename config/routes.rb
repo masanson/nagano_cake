@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get '' => 'homes#top', as: 'top'
     resources :genres, only: [:create, :index, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
