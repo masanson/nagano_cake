@@ -1,12 +1,44 @@
 <h1>Admin::Customers#show</h1>
 <p>Find me in app/views/admin/customers/show.html.erb</p>
 
-<%= @customer.id %>
-<%= @customer.last_name %>
-<%= @customer.first_name %>
-<%= @customer.last_name_kana %>
-<%= @customer.first_name_kana %>
-<%= @customer.postal_code %>
-<%= @customer.address %>
-<%= @customer.telephone_number %>
-<%= @customer.email %>
+<table class="table">
+    <tbody>
+      <tr></tr>
+      <tr>
+        <th>id</th>
+        <th><%= @customer.id %></th>
+      </tr>
+      <tr>
+        <th>
+          <%= @customer.last_name %>
+          <%= @customer.first_name %>
+        </th>
+        <th>
+          <%= @customer.last_name_kana %>
+          <%= @customer.first_name_kana %>
+        </th>
+      </tr>
+      <tr>
+        <th></th>
+        <th><%= @customer.postal_code %></th>
+      </tr>
+      <tr>
+        <th></th>
+        <th><%= @customer.address %></th>
+      </tr>
+      <tr>
+        <th></th>
+        <th><%= @customer.telephone_number %></th>
+      </tr>
+      <tr>
+        <th></th>
+        <th><%= @customer.email %></th>
+      </tr>
+      <tr>
+         <th></th>
+         <th><%= @customer.is_deleted %></th>
+      </tr>
+    </tbody>
+  </table>
+  
+   <%= link_to "編集", edit_admin_customer_path(@customer.id) %>
