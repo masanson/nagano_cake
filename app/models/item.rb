@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  belongs_to :genre
+  belongs_to :genres
   
   has_one_attached :sweets_image
   
