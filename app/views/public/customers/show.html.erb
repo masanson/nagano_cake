@@ -1,6 +1,7 @@
 <h1>Public::Customers#show</h1>
 <p>Find me in app/views/public/customers/show.html.erb</p>
 
+  <%= link_to "編集", edit_public_customer_path(@customer.id) %>
 
   <table class="table">
     <tbody>
@@ -34,4 +35,4 @@
     </tbody>
   </table>
   
-  <%= link_to "編集", edit_public_customer_path(@customer.id) %>
+  <%= link_to "配送先一覧", public_addresses_path %>
