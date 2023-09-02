@@ -18,24 +18,24 @@ class Public::AddressesController < ApplicationController
   def edit
     @address = Address.find(params[:id])
   end
-  
+
   def update
     @address = Address.find(params[:id])
-    if @address.update(params[:id])
+    if @address.update(address_params)
       redirect_to public_addresses_path
     else
       render :edit
     end
   end
-  
+
   def destroy
     @address = Address.find(params[:id])
     @address.destroy
     redirect_to public_addresses_path
   end
-  
+
   private
-  
+
   def address_params
     params.require(:address).permit(:postal_code, :address, :name, :customer_id)
   end
