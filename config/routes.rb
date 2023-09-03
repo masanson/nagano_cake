@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'cart_items/index'
-  end
   root to: "public/homes#top"
   get '/about' => 'public/homes#about', as: 'about'
 
