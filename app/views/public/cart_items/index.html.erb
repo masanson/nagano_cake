@@ -17,12 +17,12 @@
     <tr>
       <%= @cart_items.each do |cart_item| %>
       <td>
-        <%= image_tag cart_item.item.get_sweets_image(100, 100) do %>
-        <%= image_tag cart_item.item.name %>
+        <%= image_tag cart_item.item.get_sweets_image(100, 100) %>
+        <%= cart_item.item.name %>
       </td>
       <td><%= cart_item.item.price %></td>
       <td>
-        <%= form_with model: cart_item, url: public_cart_items_path, method: :patch do |f| %>
+        <%= form_with model: cart_item, url: public_cart_item_path, method: :patch do |f| %>
           <%= f.select :amount, *[1..10],  class:"form-control" %>
           <%= f.submit 'CartItem', class:"btn btn-success" %>
         <% end %>
