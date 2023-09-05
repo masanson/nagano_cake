@@ -12,22 +12,12 @@ class Public::CartItemsController < ApplicationController
     @cart_items.each do |cart_item|
       if cart_item.item_id == @cart_item.item_id
         new_amount = cart_item.amount + @cart_item.amount
-        # cart_item.update_attribute(:amount, new_amount)
-        cart_item.delete
+        cart_item.update_attribute(:amount, new_amount)
+        @cart_item.delete
       end
     end
     @cart_item.save
     redirect_to public_cart_items_path
-    # @cart_item.find_by(name: params[:cart_item][:item_id])
-    # if @cart_item_name.valid_item_id?(params[:cart_item][:item_id])
-    #   cart_item.amount += params[:cart_item][:amount].to_i
-    #   cart_item.save
-    #   redirect_to public_cart_items_path
-    # elsif @cart_item.save
-    #   redirect_to public_cart_items_path
-    # else
-    #   render :index
-    # end
   end
 
   def update
