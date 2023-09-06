@@ -31,10 +31,11 @@ Rails.application.routes.draw do
         delete 'destroy_all' => 'cart_items#destroy_all'
       end
     end
+  
     resources :orders, only: [:new, :create, :index, :show] do
-      member do
-        post 'check'
+      collection do
         get 'complition'
+        post 'check'
       end
     end
     
