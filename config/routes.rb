@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'orders/new'
+    get 'orders/index'
+    get 'orders/show'
+  end
   root to: "public/homes#top"
   get '/about' => 'public/homes#about', as: 'about'
 
@@ -14,14 +19,22 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :items, only: [:index, :show]
-    resources :customers, only: [:show, :edit, :update]
-    get 'customers/withdrawal' => 'customers#withdrawal'
-    patch 'customers/withdrawal' => 'customers#update_wd'
+    resources :customers, only: [:show, :edit, :update] do
+      member do
+        get 'withdrawal'
+        patch 'withdrawal'
+      end
+    end
     resources :addresses, only: [:create, :index, :edit, :update, :destroy]
-    
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
         delete 'destroy_all' => 'cart_items#destroy_all'
+      end
+    end
+    resources :orders, only: [:new, :create, :index, :show] do
+      member do
+        post 'check'
+        get 'complition'
       end
     end
     
