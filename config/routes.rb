@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :edit, :update] do
       member do
         get 'withdrawal'
-        patch 'withdrawal'
+        patch 'update_withdrawal'
       end
     end
     resources :addresses, only: [:create, :index, :edit, :update, :destroy]
