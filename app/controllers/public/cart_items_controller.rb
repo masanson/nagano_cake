@@ -3,6 +3,7 @@ class Public::CartItemsController < ApplicationController
     @cart_items = CartItem.all
     @cart_item = CartItem.new
     @total = 0
+    @order = Order.new
   end
 
   def create
