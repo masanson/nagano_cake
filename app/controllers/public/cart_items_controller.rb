@@ -1,23 +1,21 @@
 class Public::CartItemsController < ApplicationController
   def index
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
     @cart_item = CartItem.new
     @total = 0
     @order = Order.new
   end
 
   def create
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_item.customer_id = current_customer.id
-    @cart_items = current_customer.cart_items.all
-    @cart_items.each do |cart_item|
-      if cart_item.item_id == @cart_item.item_id
-        new_amount = cart_item.amount + @cart_item.amount
-        cart_item.update_attribute(:amount, new_amount)
-        @cart_item.delete
+    @cart_item_new = CartItem.new(cart_item_params)
+    @cart_item_new.customer_id = current_customer.id
+    @cart_item = current_customer.cart_items.find_by(item_id: @cart_item_new.item_id)
+      if @cart_item
+        new_amount = @cart_item.amount + @cart_item_new.amount
+        @cart_item.update_attribute(:amount, new_amount)
+        @cart_item_new.delete
       end
-    end
-    @cart_item.save
+    @cart_item_new.save
     redirect_to public_cart_items_path
   end
 

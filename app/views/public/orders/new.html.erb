@@ -5,9 +5,9 @@
   <div class="form-group">
   <label for="paynment">支払方法</label>
     <%= f.label :payment_method, "クレジットカード" %>
-    <%= f.radio_button :payment_method, "credit_card" %>
+    <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
     <%= f.label :payment_method, "銀行振込" %>
-    <%= f.radio_button :payment_method, "transfar" %>
+    <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
   </div>
   
   <div class="form-group">
@@ -20,18 +20,23 @@
         <%= current_customer.first_name %>
       </p>
     <% end %>
-    <%= f.radio_button :address, @order %>
+    <%= f.radio_button :address, 0 %>
   </div>
   
   <div class="form-group">
     <%= f.label :address, "登録済住所" do %>
     <%= f.select :address, options_from_collection_for_select(Address.all, :id, :address_display), class:"form-control" %>
     <% end %>
-    <%= f.radio_button :address, @order %>
+    <%= f.radio_button :address, 1 %>
   </div>
   
   <div class="form-group">
-    
+    <%= f.label :address, "新規住所" do %>
+      <%= f.text_field :postal_code %>
+      <%= f.text_field :address %>
+      <%= f.text_field :name %>
+    <% end %>
+    <%= f.radio_button :address, 2 %>
   </div>
   <div class="form-group"></div>
 <% end %>

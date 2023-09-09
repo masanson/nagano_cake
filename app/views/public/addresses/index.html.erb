@@ -30,7 +30,6 @@
     </tr>
   </thead>
     <% @addresses.each do |address| %>
-      <% if address.customer_id == current_customer.id %>
       <tbody>
         <tr>
           <td><%= address.postal_code %></td>
@@ -40,6 +39,5 @@
           <td><%= link_to "削除", public_address_path(address.id), method: :delete, class:"btn btn-sm btn-danger destroy_public_address.id", "data-confirm" => "本当に消しますか?" %></td>
         </tr>
       </tbody>
-      <% end %>
     <% end %>
 </table>

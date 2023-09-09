@@ -19,7 +19,6 @@
           </tr>
         </thead>
         <% @cart_items.each do |cart_item| %>
-          <% if cart_item.customer_id == current_customer.id%>
           <tbody>
             <tr>
               <td>
@@ -38,7 +37,6 @@
             </tr>
             <%  @total += cart_item.subtotal %>
           </tbody>
-          <% end %>
         <% end %>
       </table>
       ￥<%= @total %>
