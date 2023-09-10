@@ -5,6 +5,7 @@ class Public::OrdersController < ApplicationController
   
   def check
     @order = Order.new(order_params)
+    @order_detial = OrderDetial.new(order_detial_params)
     if params[:order][:select_address] == 0
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
@@ -17,7 +18,6 @@ class Public::OrdersController < ApplicationController
     elsif params[:order][:select_address] == 2
     end
     render :check
-    @check_orders = current_customer.orders
   end
   
   def complition
@@ -25,7 +25,9 @@ class Public::OrdersController < ApplicationController
   end
   
   def create
-    
+    @order = Order.new(order_params)
+    @order_detial = OrderDetial.new(order_detial_params)
+    # @orders = current_customer.order.
   end
   
   def index
@@ -38,6 +40,10 @@ class Public::OrdersController < ApplicationController
   
   def order_params
     params.require(:order).permit(:postal_code, :address, :name, :shipping_charge, :total_amount, :payment_method, :customer_id)
+  end
+
+  def order_detial_params
+    params.require(:order).permit(:item_id, :order_id, :amount, :price)
   end
 
 end
