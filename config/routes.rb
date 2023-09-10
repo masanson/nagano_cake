@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
         get 'complition'
+        # get 'check'
         post 'check'
       end
     end
