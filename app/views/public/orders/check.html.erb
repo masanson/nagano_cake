@@ -1,5 +1,61 @@
 check
 
-<%= form_with model: @order_new, url: public_orders_path do |f| %>
+<%= form_with model: @order, url: public_orders_path do |f| %>
+
+
+  <%= @order.postal_code %>
+  <%= @order.address %>
+  <%= @order.name %>
   <%= @order.payment_method_i18n %>
 <% end %>
+
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @cart_items.each do |cart_item| %>
+          <tbody>
+            <tr>
+              <td>
+                <%= image_tag cart_item.item.get_sweets_image(100, 100) %>
+                <%= cart_item.item.name %>
+              </td>
+              <td><%= cart_item.item.with_tax_price %></td>
+              <td><%= cart_item.amount %></td>
+              <td><%= cart_item.subtotal %></td>
+            </tr>
+          </tbody>
+        <%  @total += cart_item.subtotal %>
+        <% end %>
+      </table>
+      
+      <table class="table">
+        <tbody>
+          <tr></tr>
+          <tr>
+            <th>送料</th>
+            <th><%= user.name %></th>
+          </tr>
+          <tr>
+            <th>商品合計</th>
+            <th><%= @total %></th>
+          </tr>
+          <tr>
+            <th>請求金額</th>
+            <th><%= @total %></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
