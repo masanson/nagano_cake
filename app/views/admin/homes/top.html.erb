@@ -1,1 +1,24 @@
 Topページ
+注文履歴一覧
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>購入日時</th>
+      <th>購入者</th>
+      <th>注文個数</th>
+    </tr>
+  </thead>
+  <% @orders.each do |order| %>
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to admin_order_path(order.id) do %>
+          <%= order.created_at.strftime('%Y/%m/%d') %>
+        <% end %>
+      </td>
+      <td><%= order.customer.name %></td>
+      <td><%= order.total_amount %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

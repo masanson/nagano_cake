@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
-  end
   root to: "public/homes#top"
   get '/about' => 'public/homes#about', as: 'about'
 
@@ -25,6 +20,7 @@ Rails.application.routes.draw do
         patch 'update_withdrawal'
       end
     end
+    
     resources :addresses, only: [:create, :index, :edit, :update, :destroy]
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
@@ -35,7 +31,6 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
         get 'complition'
-        # get 'check'
         post 'check'
       end
     end
@@ -47,6 +42,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:create, :index, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only:[:show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
