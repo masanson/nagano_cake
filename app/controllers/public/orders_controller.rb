@@ -32,7 +32,7 @@ class Public::OrdersController < ApplicationController
       @order_detial.order_id = @order.id
       @order_detial.save
     end
-    @cart_items.delete
+    @cart_items.delete_all
     redirect_to complition_public_orders_path
   end
 
