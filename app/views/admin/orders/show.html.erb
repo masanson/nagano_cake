@@ -38,9 +38,10 @@
             <td><%= order_detial.item.name %></td>
             <td><%= order_detial.price %></td>
             <td><%= order_detial.amount %></td>
-            <td>%= order_detial.subtotal %></td>
+            <td><%= order_detial.subtotal %></td>
           </tr>
         </tbody>
+        <% @total += order_detial.subtotal %>
         <% end %>
       </table>
 

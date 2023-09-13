@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_detials = @order.order_detials.all
-  
+    @total = 0
   end
 
   private
