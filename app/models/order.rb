@@ -8,8 +8,4 @@ class Order < ApplicationRecord
     800
   end
   
-  # def item_sum
-  #   @order_detial.sum(:amount)
-  # end
-  
 end

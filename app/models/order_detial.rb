@@ -6,8 +6,4 @@ class OrderDetial < ApplicationRecord
     price * amount
   end
 
-  def item_sum
-    @order_detial.sum(:amount)
-  end
-
 end
