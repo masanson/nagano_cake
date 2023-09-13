@@ -7,7 +7,7 @@ class OrderDetial < ApplicationRecord
   end
 
   def item_sum
-    amount.sum
+    @order_detial.sum(:amount)
   end
 
 end
