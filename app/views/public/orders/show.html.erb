@@ -36,13 +36,13 @@
         <% @orders.each do |order| %>
         <tbody>
           <tr>
-            <td><%= order.order_detials.items.name %></td>
-            <td><%= order.order_detials.price %></td>
-            <td><%= order.order_detials.amount %></td>
-            <td><%= order.order_detials.subtotal %></td>
+            <td><%= order.item.name %></td>
+            <td><%= order.price %></td>
+            <td><%= order.amount %></td>
+            <td><%= order.subtotal %></td>
           </tr>
         </tbody>
-        <% @total += order.order_detial.subtotal %>
+        <% @total += order.subtotal %>
         <% end %>
       </table>
 
