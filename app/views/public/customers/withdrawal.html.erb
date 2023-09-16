@@ -3,7 +3,7 @@
 
 <%= form_with model: @customer, url: update_withdrawal_public_customer_path, method: :patch do |f| %>
    
-  <%= link_to "退会しない", edit_public_customer_path(@customer.id), class:"btn btn-sm btn-success" %>
-  <%= f.submit "退会する". class:"btn btn-sm btn-danger" %>
+  <%= link_to "退会しない", public_customer_path(@customer.id), class:"btn btn-sm btn-success" %>
+  <%= f.submit "退会する", class:"btn btn-sm btn-danger" %>
   
 <% end %>
