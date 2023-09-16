@@ -20,7 +20,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
-  def update_wd
+  def update_withdrawal
     @customer = Customer.find(params[:id])
     @customer.update(is_deleted: true) 
     reset_session
