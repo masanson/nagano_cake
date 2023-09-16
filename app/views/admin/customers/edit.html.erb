@@ -1,64 +1,53 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+    <div class="col-md-8 offset-md-1">
       <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
-         <div class="field">
-          <%= f.label :last_name %><br />
-          <%= f.text_field :last_name %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :first_name %><br />
-          <%= f.text_field :first_name %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :last_name_kana %><br />
-          <%= f.text_field :last_name_kana %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :first_name_kana %><br />
-          <%= f.text_field :first_name_kana %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-      
-        <div class="field">
-          <%= f.label :postal_code %><br />
-          <%= f.text_field :postal_code %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :address %><br />
-          <%= f.text_field :address %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :telephone_number %><br />
-          <%= f.telephone_field :telephone_number %>
-        </div>
-        
-        <div class="form-group">
-          <label for="customer_status">customer_status</label>
-          <div>
-            <%= f.label :is_deleted_ture, "退会中" %>
-            <%= f.radio_button :is_deleted, true %>
-            <%= f.label :is_deleted_false, "有効" %>
-            <%= f.radio_button :is_deleted, false %>
-          </div>
-        </div>
-        
-        <%= f.submit "編集完了" %>
-        
+      <table>
+        <tbody>
+          <tr>
+            <th>会員ID</th>
+            <td><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <th>氏名</th>
+            <td><%= f.text_field :first_name %></td>
+            <td><%= f.text_field :last_name %></td>
+          </tr>
+          <tr>
+            <th>フリガナ</th>
+            <td><%= f.text_field :first_name_kana %></td>
+            <td><%= f.text_field :last_name_kana %></td>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <td><%= f.text_field :postal_code %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><%= f.telephone_field :telephone_number %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr>
+            <th>会員ステータス</th>
+            <td>
+              <%= f.label :is_deleted_false, "有効" %>
+              <%= f.radio_button :is_deleted, false %>
+              <%= f.label :is_deleted_ture, "退会" %>
+              <%= f.radio_button :is_deleted, true %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <%= f.submit "編集完了" %>
       <% end %>
     </div>
   </div>
 </div>
-

@@ -1,49 +1,42 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
 
-<%= form_with model: @customer, url: public_customer_path, method: :patch do |f| %>
-   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :last_name_kana %><br />
-    <%= f.text_field :last_name_kana %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :first_name_kana %><br />
-    <%= f.text_field :first_name_kana %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :postal_code %><br />
-    <%= f.text_field :postal_code %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <%= form_with model: @customer, url: public_customer_path, method: :patch do |f| %>
+      <table>
+        <tbody>
+          <tr>
+            <th>氏名</th>
+            <td><%= f.text_field :first_name %></td>
+            <td><%= f.text_field :last_name %></td>
+          </tr>
+          <tr>
+            <th>フリガナ</th>
+            <td><%= f.text_field :first_name_kana %></td>
+            <td><%= f.text_field :last_name_kana %></td>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <td><%= f.text_field :postal_code %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><%= f.telephone_field :telephone_number %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= f.submit "編集完了", class:"btn btn-sm btn-success" %>
+      <% end %>
+      <%= link_to "退会する", withdrawal_public_customer_path(@customer.id), class:"btn btn-sm btn-danger" %>
+    </div>
   </div>
-  
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :telephone_number %><br />
-    <%= f.telephone_field :telephone_number %>
-  </div>
-  
-  <%= f.submit "編集完了" %>
-  
-<% end %>
-
-<%= link_to "退会する", withdrawal_public_customer_path(@customer.id), class:"btn btn-sm btn-success" %>
+</div>
