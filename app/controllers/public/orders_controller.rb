@@ -25,12 +25,12 @@ class Public::OrdersController < ApplicationController
     @order.save
     @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
-      @order_detial = OrderDetial.new
-      @order_detial.item_id = cart_item.item.id
-      @order_detial.price = cart_item.item.with_tax_price
-      @order_detial.amount = cart_item.amount
-      @order_detial.order_id = @order.id
-      @order_detial.save
+      @order_detail = OrderDetail.new
+      @order_detail.item_id = cart_item.item.id
+      @order_detail.price = cart_item.item.with_tax_price
+      @order_detail.amount = cart_item.amount
+      @order_detail.order_id = @order.id
+      @order_detail.save
     end
     @cart_items.delete_all
     redirect_to complition_public_orders_path
@@ -46,7 +46,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @orders = @order.order_detials.all
+    @orders = @order.order_details.all
     @total = 0
   end
 
@@ -55,9 +55,5 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:postal_code, :address, :name, :shipping_charge, :total_amount, :payment_method, :customer_id)
   end
-
-  # def order_detial_params
-  #   params.require(:order_detial).permit(:item_id, :order_id, :amount, :price)
-  # end
 
 end

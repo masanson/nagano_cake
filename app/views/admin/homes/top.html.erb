@@ -22,7 +22,7 @@ Topページ
               <% end %>
             </td>
             <td><%= order.customer.name %></td>
-            <td><%= order.order_detials.sum(:amount) %></td>
+            <td><%= order.order_details.sum(:amount) %></td>
           </tr>
         </tbody>
         <% end %>

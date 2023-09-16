@@ -32,16 +32,16 @@
             <th>小計</th>
           </tr>
         </thead>
-        <% @order_detials.each do |order_detial| %>
+        <% @order_details.each do |order_detail| %>
         <tbody>
           <tr>
-            <td><%= order_detial.item.name %></td>
-            <td><%= order_detial.price %></td>
-            <td><%= order_detial.amount %></td>
-            <td><%= order_detial.subtotal %></td>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.price %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.subtotal %></td>
           </tr>
         </tbody>
-        <% @total += order_detial.subtotal %>
+        <% @total += order_detail.subtotal %>
         <% end %>
       </table>
 
