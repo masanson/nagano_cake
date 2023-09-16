@@ -1,42 +1,40 @@
 <h1>Admin::Customers#show</h1>
 <p>Find me in app/views/admin/customers/show.html.erb</p>
 
-<table class="table">
+<table>
     <tbody>
       <tr></tr>
       <tr>
-        <th>id</th>
-        <th><%= @customer.id %></th>
+        <th>会員ID</th>
+        <td><%= @customer.id %></td>
       </tr>
       <tr>
-        <th>
-          <%= @customer.last_name %>
-          <%= @customer.first_name %>
-        </th>
-        <th>
-          <%= @customer.last_name_kana %>
-          <%= @customer.first_name_kana %>
-        </th>
+        <th>氏名</th>
+        <td><%= @customer.name %></td>
       </tr>
       <tr>
-        <th></th>
-        <th><%= @customer.postal_code %></th>
+        <th>フリガナ</th>
+        <td><%= @customer.name_kana %></td>
       </tr>
       <tr>
-        <th></th>
-        <th><%= @customer.address %></th>
+        <th>郵便番号</th>
+        <td>〒 <%= @customer.postal_code %></td>
       </tr>
       <tr>
-        <th></th>
-        <th><%= @customer.telephone_number %></th>
+        <th>住所</th>
+        <td><%= @customer.address %></td>
       </tr>
       <tr>
-        <th></th>
-        <th><%= @customer.email %></th>
+        <th>電話番号</th>
+        <td><%= @customer.telephone_number %></td>
       </tr>
       <tr>
-         <th></th>
-         <th><%= @customer.is_deleted %></th>
+        <th>メールアドレス</th>
+        <td><%= @customer.email %></td>
+      </tr>
+      <tr>
+         <th>会員ステータス</th>
+         <td><%= @customer.is_deleted_status %></td>
       </tr>
     </tbody>
   </table>

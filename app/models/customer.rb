@@ -15,4 +15,13 @@ class Customer < ApplicationRecord
   def name_kana
     first_name_kana + ' ' + last_name_kana
   end
+  
+  def is_deleted_status
+    if is_deleted == false
+      "有効"
+    else
+      "退会"
+    end
+  end
+  
 end
