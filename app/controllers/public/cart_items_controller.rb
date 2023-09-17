@@ -42,4 +42,13 @@ class Public::CartItemsController < ApplicationController
     params.require(:cart_item).permit(:amount, :item_id, :customer_id)
   end
 
+  # def cart_item_nill
+  #   @cart_items = current_customer.cart_items
+  #   if @cart_items == nil 
+  #     render public_cart_items_path 
+  #   else 
+  #     redirect_to  new_public_order_path 
+  #   end 
+  # end
+
 end

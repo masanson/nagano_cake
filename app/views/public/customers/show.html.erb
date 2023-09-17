@@ -1,9 +1,9 @@
-<h1></h1>
+<h2>マイページ</h2>
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-1">
       <%= link_to "編集", edit_public_customer_path(@customer.id), class:"btn btn-success" %>
-      
+
       <table class="table">
         <tbody>
           <tr></tr>
@@ -33,17 +33,17 @@
           </tr>
         </tbody>
       </table>
-        
+
       <div>
         <label>配送先</label>
         <div><%= link_to "一覧を見る", public_addresses_path, class:"btn btn-primary" %></div>
       </div>
-      
+
       <div>
         <label>注文履歴</label>
         <div><%= link_to "一覧を見る", public_orders_path, class:"btn btn-primary" %></div>
       </div>
-      
+
     </div>
   </div>
 </div>

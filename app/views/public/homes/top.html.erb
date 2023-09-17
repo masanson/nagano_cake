@@ -1,2 +1,21 @@
 <h1>Public::Homes#top</h1>
 <p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <div class="row justify-content-between">
+        <% @items.each do |item| %>
+        <div>
+          <div>
+            <%= link_to public_item_path(item.id) do%>
+              <%= image_tag item.get_sweets_image(100, 100) %>
+            <% end %>
+          </div>
+          <div><%= item.name %></div>
+          <div>¥<%= item.with_tax_price %></div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

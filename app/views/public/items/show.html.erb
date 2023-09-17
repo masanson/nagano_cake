@@ -1,27 +1,35 @@
 <h1>Public::Items#show</h1>
 <p>Find me in app/views/public/items/show.html.erb</p>
 
-<table class="table table-hover table-inverse">
-  <thead>
-    <tr>
-      <th></th>
-      <th>商品名</th>
-      <th>商品説明</th>
-      <th>税抜価格</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= image_tag @item.get_sweets_image(100, 100) %></td>
-      <td><%= @item.name %></td>
-      <td><%= @item.introduction %></td>
-      <td><%= @item.price %></td>
-    </tr>
-  </tbody>
-</table>
-
-<%= form_with model: @cart_item, url: public_cart_items_path, method: :post do |f| %>
-  <%= f.hidden_field :item_id, :value => @item.id %>
-  <%= f.select :amount, *[1..10],  class:"form-control" %>
-  <%= f.submit 'CartItem', class:"btn btn-success" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <table>
+        <tbody>
+          <tr>
+            <th><%= image_tag @item.get_sweets_image(150, 150) %></th>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><%= @item.introduction %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>¥<%= @item.with_tax_price %> (税込)</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <%= form_with model: @cart_item, url: public_cart_items_path, method: :post do |f| %>
+                <%= f.hidden_field :item_id, :value => @item.id %>
+                <%= f.select :amount, *[1..10], class:"form-control" %>
+                <%= f.submit 'CartItem', class:"btn btn-success" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
