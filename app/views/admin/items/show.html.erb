@@ -17,9 +17,9 @@
       <td><%= image_tag @item.get_sweets_image(100, 100) %></td>
       <td><%= @item.name %></td>
       <td><%= @item.introduction %></td>
-      <td><%= @item.genre_id %></td>
+      <td><%= @item.genre.name %></td>
       <td><%= @item.price %></td>
-      <td><%= @item.is_on_sale %></td>
+      <td><%= @item.is_on_sale_status %></td>
     </tr>
   </tbody>
 </table>
