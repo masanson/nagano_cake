@@ -13,28 +13,36 @@
   <body>
     <header>
         <div class="container">
-          <div class="row" >
-            <% if admin_signed_in? %>
-              <%= link_to "ログアウトadimin", destroy_admin_session_path, method: :delete %>
-              <%= link_to "商品一覧", admin_items_path %>
-              <%= link_to "会員一覧", admin_customers_path %>
-              <%= link_to "注文履歴一覧", admin_top_path %>
-              <%= link_to "ジャンル一覧", admin_genres_path %>
-            <% else %>
-              <%= link_to "ログインadmin", new_admin_session_path %>
-            <% end %>
-      
-            <% if customer_signed_in? %>
-              <%= link_to "マイページ", public_customer_path(current_customer.id) %>
-              <%= link_to "商品一覧", public_items_path %>
-              <%= link_to "カート", public_cart_items_path %>
-              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-            <% else %>
-              <%= link_to "About", about_path %>
-              <%= link_to "商品一覧", public_items_path %>
-              <%= link_to "新規登録", new_customer_registration_path %>
-              <%= link_to "ログイン", new_customer_session_path %>
-            <% end %>
+          <div class="row justify-content-between align-items-center">
+            <div>
+              <%= link_to root_path do %>
+                <h1 class="text-muted">LOGO</h1>
+              <% end %>
+            </div>
+            <div class="text-center">
+              <% if customer_signed_in? %>
+                <p >ようこそ、<%= current_customer.first_name %>さん！</p>
+              <% end %>
+            </div>
+            <div class="row justify-content-around" >
+              <% if admin_signed_in? %>
+                <%= link_to "ログアウトadimin", destroy_admin_session_path, method: :delete, class:"btn btn-default" %>
+                <%= link_to "商品一覧", admin_items_path, class:"btn btn-default" %>
+                <%= link_to "会員一覧", admin_customers_path, class:"btn btn-default" %>
+                <%= link_to "注文履歴一覧", admin_top_path, class:"btn btn-default" %>
+                <%= link_to "ジャンル一覧", admin_genres_path, class:"btn btn-default" %>
+              <% elsif customer_signed_in? %>
+                <%= link_to "マイページ", public_customer_path(current_customer.id), class:"btn btn-default" %>
+                <%= link_to "商品一覧", public_items_path, class:"btn btn-default" %>
+                <%= link_to "カート", public_cart_items_path, class:"btn btn-default" %>
+                <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"btn btn-default" %>
+              <% else %>
+                <%= link_to "About", about_path, class:"btn btn-default" %>
+                <%= link_to "商品一覧", public_items_path, class:"btn btn-default" %>
+                <%= link_to "新規登録", new_customer_registration_path, class:"btn btn-default" %>
+                <%= link_to "ログイン", new_customer_session_path, class:"btn btn-default" %>
+              <% end %>
+            </div>
           </div>
         </div>
     </header>

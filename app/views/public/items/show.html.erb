@@ -21,11 +21,14 @@
           <tr>
             <th></th>
             <td>
-              <%= form_with model: @cart_item, url: public_cart_items_path, method: :post do |f| %>
-                <%= f.hidden_field :item_id, :value => @item.id %>
-                <%= f.select :amount, *[1..10], class:"form-control" %>
-                <%= f.submit 'カートに入れる', class:"btn btn-success" %>
+              <% if customer_signed_in? %>
+                <%= form_with model: @cart_item, url: public_cart_items_path, method: :post do |f| %>
+                  <%= f.hidden_field :item_id, :value => @item.id %>
+                  <%= f.select :amount, *[1..10], class:"form-control" %>
+                  <%= f.submit 'カートに入れる', class:"btn btn-success" %>
+                <% end %>
               <% end %>
+              
             </td>
           </tr>
         </tbody>

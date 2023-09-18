@@ -1,9 +1,14 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-1">
-      <div class="row justify-content-between">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="row m-md-5">
+        <p>ようこそ、ながのcakeへ！</p></br>
+        <p>このサイトは、ケーキ販売のECサイトになります。</p></br>
+        <p>会員でない方も商品の閲覧はできますが、</p></br>
+        <p>購入には会員登録が必要になります。</p>
+      </div>
+      <h1 class="row justify-content-between">新着商品</h1>
+      <div class="row justify-content-between align-bottom">
         <% @items.each do |item| %>
         <div>
           <div>
