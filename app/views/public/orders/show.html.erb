@@ -1,68 +1,70 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
-
 <div class="container">
   <div class="row">
-    <div class="col-md-8 offset-md-1">
-      <div>
-        <h3>購入者</h3>
-        <%= @order.customer.name %>
-      </div>
-      <div>
-        <h3>注文日</h3>
-        <%= @order.created_at.strftime('%Y/%m/%d') %>
-      </div>
-      <div>
-        <h3>配送先</h3>
-        <%= @order.postal_code %>
-        <%= @order.address %></br>
-        <%= @order.name %>
-      </div>
-       <div>
-        <h3>支払方法</h3>
-        <%= @order.payment_method_i18n %>
-      </div>
+    <div class="col-md-10 offset-md-1">
+        <div class="row justify-content-between pt-5">
+          <table class="table table-bordered col-8 px-2">
+            <tbody>
+              <tr>
+                <th>注文日</th>
+                <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+              </tr>
+              <tr>
+                <th>配送先</th>
+                <td>
+                  <%= @order.postal_code %>
+                  <%= @order.address %></br>
+                  <%= @order.name %>
+                </td>
+              </tr>
+              <tr>
+                <th>支払方法</th>
+                <td><%= @order.payment_method_i18n %></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <table class="table table-bordered col-2 pl-2">
+            <tbody>
+              <tr></tr>
+              <tr>
+                <th>送料</th>
+                <th><%= @order.shipping_charge %></th>
+              </tr>
+              <tr>
+                <th>商品合計</th>
+                <th><%= @total %></th>
+              </tr>
+              <tr>
+                <th>請求金額</th>
+                <th><%= @order.total_amount %></th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th>商品名</th>
-            <th>単価(税込)</th>
-            <th>数量</th>
-            <th>小計</th>
-          </tr>
-        </thead>
-        <% @orders.each do |order| %>
-        <tbody>
-          <tr>
-            <td><%= order.item.name %></td>
-            <td><%= order.price %></td>
-            <td><%= order.amount %></td>
-            <td><%= order.subtotal %></td>
-          </tr>
-        </tbody>
-        <% @total += order.subtotal %>
-        <% end %>
-      </table>
-
-      <table class="table">
-        <tbody>
-          <tr></tr>
-          <tr>
-            <th>送料</th>
-            <th><%= @order.shipping_charge %></th>
-          </tr>
-          <tr>
-            <th>商品合計</th>
-            <th><%= @total %></th>
-          </tr>
-          <tr>
-            <th>請求金額</th>
-            <th><%= @order.total_amount %></th>
-          </tr>
-        </tbody>
-      </table>
+        <div class="row py-3">
+          <table class="table table-bordered col-7">
+            <thead>
+              <tr>
+                <th>商品名</th>
+                <th>単価(税込)</th>
+                <th>数量</th>
+                <th>小計</th>
+              </tr>
+            </thead>
+            <% @orders.each do |order| %>
+            <tbody>
+              <tr>
+                <td><%= order.item.name %></td>
+                <td><%= order.price %></td>
+                <td><%= order.amount %></td>
+                <td><%= order.subtotal %></td>
+              </tr>
+            </tbody>
+            <% @total += order.subtotal %>
+            <% end %>
+          </table>
+        </div>
 
     </div>
   </div>
