@@ -1,18 +1,17 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-1">
+  <div class="row justify-content-center m-md-5">
+    <div class="col-md-10 m-2">
+      <%= form_with model: @customer, url: update_withdrawal_public_customer_path, method: :patch do |f| %>
       <div class="text-center">
         <h3>本当に退会しますか？</h3>
         <p>退会すると、会員登録情報や</p></br>
         <p>これまでの購入履歴が閲覧できなくなります。</p></br>
         <p>退会する場合は、「退会する」をクリックしてください。</p>
       </div>
-      <%= form_with model: @customer, url: update_withdrawal_public_customer_path, method: :patch do |f| %>
-         
-        <%= link_to "退会しない", public_customer_path(@customer.id), class:"btn btn-sm btn-success" %>
-        <%= f.submit "退会する", class:"btn btn-sm btn-danger", "data-confirm" => "本当に退会しますか?" %>
-        
+      <div class="row">
+        <div class="col-1"><%= link_to "退会しない", public_customer_path(@customer.id), class:"btn btn-sm btn-success" %></div>
+        <div class="col-3"><%= f.submit "退会する", class:"btn btn-sm btn-danger", "data-confirm" => "本当に退会しますか?" %></div>
+      </div>
       <% end %>
     </div>
   </div>
