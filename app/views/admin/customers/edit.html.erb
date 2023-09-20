@@ -1,43 +1,42 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-1">
+  <div class="row justify-content-center m-md-5">
+    <div class="col-10 offset-md-1">
       <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
       <table>
         <tbody>
           <tr>
             <th>会員ID</th>
-            <td><%= @customer.id %></td>
+            <td class="p-md-2"><%= @customer.id %></td>
           </tr>
           <tr>
             <th>氏名</th>
-            <td><%= f.text_field :first_name %></td>
+            <td class="p-md-2"><%= f.text_field :first_name %></td>
             <td><%= f.text_field :last_name %></td>
           </tr>
           <tr>
             <th>フリガナ</th>
-            <td><%= f.text_field :first_name_kana %></td>
+            <td class="p-md-2"><%= f.text_field :first_name_kana %></td>
             <td><%= f.text_field :last_name_kana %></td>
           </tr>
           <tr>
             <th>郵便番号</th>
-            <td><%= f.text_field :postal_code %></td>
+            <td class="p-md-2"><%= f.text_field :postal_code %></td>
           </tr>
           <tr>
             <th>住所</th>
-            <td><%= f.text_field :address %></td>
+            <td class="p-md-2"><%= f.text_field :address %></td>
           </tr>
           <tr>
             <th>電話番号</th>
-            <td><%= f.telephone_field :telephone_number %></td>
+            <td class="p-md-2"><%= f.telephone_field :telephone_number %></td>
           </tr>
           <tr>
             <th>メールアドレス</th>
-            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+            <td class="p-md-2"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
           </tr>
           <tr>
             <th>会員ステータス</th>
-            <td>
+            <td class="p-md-2">
               <%= f.label :is_deleted_false, "有効" %>
               <%= f.radio_button :is_deleted, false %>
               <%= f.label :is_deleted_ture, "退会" %>
