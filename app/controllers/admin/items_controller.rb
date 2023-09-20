@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
   end
 
   def new
@@ -23,18 +23,18 @@ class Admin::ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
   end
-  
+
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to admin_item_path(@item.id)
     end
   end
-  
+
   private
-  
+
   def item_params
     params.require(:item).permit(:sweets_image, :name, :introduction, :genre_id, :price, :is_on_sale )
   end
-  
+
 end

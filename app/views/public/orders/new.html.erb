@@ -8,7 +8,7 @@
         <div class="col-12 py-1">
           <label for="paynment">支払方法</label>
             <div>
-              <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+              <%= f.radio_button :payment_method, Order.payment_methods.key(0), {:checked => true} %>
               <%= f.label :payment_method, "クレジットカード" %>
             </div>
             <div>
@@ -21,7 +21,7 @@
         <div class="col-12 py-1">
           <label>お届け先</label>
           <div class="py-1">
-            <%= f.radio_button :select_address, 0 %>
+            <%= f.radio_button :select_address, 0, {:checked => true} %>
             <label>ご自身の住所</label>
             <div>
               <%= f.label :select_address, "ご自身の住所" do %>
