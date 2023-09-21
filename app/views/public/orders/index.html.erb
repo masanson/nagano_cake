@@ -1,4 +1,5 @@
 <div class="container">
+  <h3>注文履歴一覧</h3>
   <div class="row justify-content-center m-md-5">
     <div class="col-md-10 m-my-2">
        <table class="table table-bordered col-11 table-hover table-inverse">
@@ -26,11 +27,12 @@
               <% end %>
             </td>
             <td><%= order.total_amount %></td>
-            <td><%= link_to "表示する", public_order_path(order.id), class:"btn btn-success" %></td>
+            <td><%= link_to "表示する", public_order_path(order.id), class:"btn btn-primary" %></td>
           </tr>
         </tbody>
         <% end %>
       </table>
     </div>
   </div>
+  <div class="row justify-content-center"><%= paginate @orders %></div>
 </div>

@@ -50,11 +50,11 @@
           <tbody>
             <tr>
               <th>支払方法</th>
-              <td><%= @order.payment_method_i18n %></td>
+              <td class="p-3"><%= @order.payment_method_i18n %></td>
             </tr>
             <tr>
               <th>お届け先</th>
-              <td>
+              <td class="p-3">
                 <%= @order.postal_code %>
                 <%= @order.address %></br>
                 <%= @order.name %>
@@ -71,7 +71,7 @@
             <%= f.hidden_field :total_amount, :value => @total + @order.shipping_charge %>
             <%= f.hidden_field :payment_method, :value => @order.payment_method %>
             <%= f.hidden_field :customer_id, :value => current_customer.id %>
-            <%= f.submit '注文確定', class:"btn btn-success" %>
+            <%= f.submit '注文を確定する', class:"btn btn-success" %>
           </div>
         </div>
       </div>

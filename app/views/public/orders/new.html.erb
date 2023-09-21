@@ -6,7 +6,7 @@
       <h4>注文情報入力</h4>
       <div class="row ">
         <div class="col-12 py-1">
-          <label for="paynment">支払方法</label>
+          <h5 for="paynment">支払方法</h5>
             <div>
               <%= f.radio_button :payment_method, Order.payment_methods.key(0), {:checked => true} %>
               <%= f.label :payment_method, "クレジットカード" %>
@@ -19,9 +19,9 @@
       </div>
       <div class="row">
         <div class="col-12 py-1">
-          <label>お届け先</label>
+          <h5>お届け先</h5>
           <div class="py-1">
-            <%= f.radio_button :select_address, 0, {:checked => true} %>
+            <%= f.radio_button :select_address, 0, {:checked => true}  %>
             <label>ご自身の住所</label>
             <div>
               <%= f.label :select_address, "ご自身の住所" do %>
@@ -50,15 +50,15 @@
                 <tbody>
                   <tr>
                     <td>郵便番号(ハイフンなし)</td>
-                    <td><%= f.text_field :postal_code %></td>
+                    <td class="p-2"><%= f.text_field :postal_code %></td>
                   </tr>
                   <tr>
                     <td>住所</td>
-                    <td><%= f.text_field :address %></td>
+                    <td class="p-2"><%= f.text_field :address %></td>
                   </tr>
                   <tr>
                     <td>宛名</td>
-                    <td><%= f.text_field :name %></td>
+                    <td class="p-2"><%= f.text_field :name %></td>
                   </tr>
                 </tbody>
               </table>

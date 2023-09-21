@@ -38,9 +38,12 @@
       </table>
       <div class="row justify-content-between">
         <div class="col-sm-4"><%= link_to "買い物を続ける", root_path, class:"btn btn-primary" %></div>
-        <div class="col-sm-4">
-          合計金額 ￥<%= @total %>
-        </div>
+        <table class="col-sm-4 table table-bordered">
+          <tr>
+            <th>合計金額</th>
+            <td>￥<%= @total %></td>
+          </tr>
+        </table>
       </div>
       <div class="row justify-content-center">
         <div class="col-sm-4">
