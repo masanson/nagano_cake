@@ -20,7 +20,7 @@ class Customer < ApplicationRecord
     if is_deleted == false
       "有効"
     else
-      "退会中"
+      "退会"
     end
   end
   
